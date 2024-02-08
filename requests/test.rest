@@ -1,0 +1,35 @@
+### Create Currency ###
+POST http://localhost:3001/api/currency
+Content-Type: application/json
+
+{
+  "currencyCode": "USD",
+  "countryId": 1,
+  "conversionRate": 1.0
+}
+
+### Get All Currencies ###
+GET http://localhost:3001/api/currency
+
+### Get Currency by ID ###
+GET http://localhost:3001/api/currency/1
+
+### Update Currency Rate ###
+PUT http://localhost:3001/api/currency/1/1.2
+
+### Delete Currency ###
+DELETE http://localhost:3001/api/currency/1
+
+### Create Country ###
+POST http://localhost:3001/api/country
+Content-Type: application/json
+
+{
+  "name": "United States"
+}
+
+### Get All Countries ###
+GET http://localhost:3001/api/country
+
+### Delete Country ###
+DELETE http://localhost:3001/api/country/1
