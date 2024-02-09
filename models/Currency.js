@@ -15,16 +15,19 @@ const Currency = sequelize.define('Currency', {
   countryId: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    references: {
+    /* references: {
       model: Country, // Reference to the Country model
       key: 'id',
-      //deferrable: 'INITIALLY_IMMEDIATE', // Optional, depends on your database setup
-    },
+      deferrable: 'INITIALLY_IMMEDIATE', // Optional, depends on your database setup
+    }, */
   },
   conversionRate: {
     type: DataTypes.FLOAT,
     allowNull: false,
   },
 });
+
+// Define association with Country model
+Currency.belongsTo(Country, { foreignKey: 'countryId' }); // Each currency belongs to one country
 
 module.exports = Currency;
