@@ -27,11 +27,9 @@ app.use(
 
 // Import routes
 const currencyRoutes = require('./routes/currencyRoutes');
-const countryRoutes = require('./routes/countryRoutes'); // Import country routes
 
 // Use routes without repeating the base route
 app.use('/api/currency', currencyRoutes);
-app.use('/api/country', countryRoutes); // Use country routes
 
 // Test database connection
 (async () => {
@@ -40,10 +38,6 @@ app.use('/api/country', countryRoutes); // Use country routes
     console.log(
       'Connection to the database has been established successfully.'
     );
-
-    // Sync models with the database and force dropping tables if they exist
-    await sequelize.sync({ force: true });
-    console.log('Models synchronized with the database and tables recreated.');
   } catch (error) {
     console.error('Unable to connect to the database:', error);
   }
